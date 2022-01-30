@@ -7,21 +7,15 @@ import org.springframework.stereotype.Service
 
 @Service
 class KotlinServiceImpl(): KotlinService {
-    val bookList: ArrayList<BookModel> = ArrayList()
+   var bookList: ArrayList<BookModel> = ArrayList()
 
     override  fun create(bookModel: BookModel): BookModel {
         val titleFormated = titleTextFormated(bookModel.title)
 
-        val book = BookModel(
-            title = titleFormated,
-            year = bookModel.year,
-            description = bookModel.description,
-            author = bookModel.author,
-            bookType = bookModel.bookType
-        )
-        bookList.add(book)
+        bookModel.title = titleFormated
+        bookList.add(bookModel)
 
-        return book
+        return bookModel
     }
 
     override fun get(id: Int): BookModel {
@@ -56,6 +50,6 @@ class KotlinServiceImpl(): KotlinService {
     }
 
     private fun titleTextFormated(title :String?): String{
-        return "o nome do livro é de $title"
+        return "o nome do livro é $title"
     }
 }

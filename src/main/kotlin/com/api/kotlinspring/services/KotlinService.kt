@@ -1,7 +1,6 @@
 package com.api.kotlinspring.services
 
 import com.api.kotlinspring.models.BookModel
-import org.springframework.http.ResponseEntity
 
 interface KotlinService {
 
